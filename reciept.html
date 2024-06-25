@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="receipt">
+        <h1>Receipt</h1>
+        <p><strong>Date:</strong> {{ date }}</p>
+        <p><strong>Receipt Number:</strong> {{ receipt_number }}</p>
+
+        <h2>Customer Information</h2>
+        <p><strong>Name:</strong> {{ customer_name }}</p>
+        <p><strong>Email:</strong> {{ customer_email }}</p>
+
+        <h2>Items</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Total</h2>
+        <p><strong>Total Amount:</strong> {{ total_amount }}</p>
+    </div>
+</body>
+</html>
